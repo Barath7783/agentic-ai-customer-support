@@ -2,7 +2,7 @@ services:
   - type: web
     name: agentic-customer-support-api
     runtime: docker
-    dockerfilePath: ./backend/Dockerfile
+    dockerfilePath: ./Dockerfile
     rootDir: backend
     plan: free
 
