@@ -25,6 +25,10 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
 
+    envVars:
+      - key: VITE_API_URL
+        value: https://agentic-customer-support-api.onrender.com
+
 databases:
   - name: customer-support-db
     plan: free
