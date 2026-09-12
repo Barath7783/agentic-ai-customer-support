@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: agentic-customer-support-api
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    rootDir: backend
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
