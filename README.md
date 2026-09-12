@@ -1,80 +1,69 @@
-# Agentic AI Customer Support
+# 🤖 Agentic AI Customer Support
 
-A portfolio-ready customer-support application using:
+An AI-powered customer-support application built with **Agentic AI, LangGraph, Google Gemini, RAG, business tools, PostgreSQL, FastAPI, React, Docker, and Render**.
 
-- React + Vite frontend
-- FastAPI backend
-- LangGraph agent
-- RAG knowledge retrieval
-- Business tools for order/refund/cancellation
-- PostgreSQL-ready database layer
-- Docker support
+The system understands customer requests, identifies their intent, retrieves relevant company knowledge, executes the appropriate business action, and generates a natural-language response.
 
-## 1. Backend
+---
 
-```bash
-cd backend
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
+## 🌐 Live Demo
 
-pip install -r requirements.txt
-```
+### Frontend
 
-Copy `.env.example` to `.env` and add your OpenAI API key.
+👉 https://agentic-customer-support-frontend.onrender.com
 
-Run:
+### Backend API
 
-```bash
-uvicorn app:app --reload
-```
+👉 https://agentic-customer-support-api.onrender.com
 
-Backend:
-http://localhost:8000
+---
 
-## 2. Frontend
+## 📌 Project Overview
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+Traditional customer-support chatbots mainly provide text responses.
 
-Open the Vite URL shown in the terminal.
+This project goes a step further by using an **Agentic AI workflow** that can understand a customer's request and perform appropriate business actions.
 
-If the backend is deployed, create:
+For example:
+
+- 📦 Check an order
+- 💰 Submit a refund request
+- ❌ Submit an order cancellation request
+- 🎫 Create a support ticket
+- 📚 Answer company policy questions
+
+---
+
+## 🧠 How It Works
 
 ```text
-VITE_API_URL=https://your-backend-url
-```
-
-in the frontend deployment environment.
-
-## Demo order IDs
-
-- 1001 = shipped
-- 1002 = delayed
-- 1003 = delivered
-
-Try:
-
-- "Where is order #1001?"
-- "My order #1002 is late"
-- "I want a refund for order #1003"
-- "Cancel order #1001"
-
-## Production upgrades
-
-For a real production system, add:
-- JWT/OAuth authentication
-- real order/payment APIs
-- persistent conversation history
-- a real vector database
-- document ingestion pipeline
-- human-agent dashboard
-- structured logging
-- rate limiting
-- secrets management
-- monitoring and tests
+                    Customer
+                       │
+                       ▼
+              React + Vite Frontend
+                       │
+                       ▼
+                 FastAPI Backend
+                       │
+                       ▼
+                LangGraph Agent
+                       │
+              ┌────────┴────────┐
+              │                 │
+              ▼                 ▼
+       Intent Detection      RAG Retrieval
+              │                 │
+              └────────┬────────┘
+                       ▼
+               Business Tool
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+      Order Tool   Refund Tool   Ticket Tool
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+                 Gemini LLM
+                       │
+                       ▼
+              Customer Response
