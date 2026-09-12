@@ -1,11 +1,31 @@
 services:
   - type: web
     name: agentic-customer-support-api
-    env: docker
+    runtime: docker
     dockerfilePath: ./backend/Dockerfile
     rootDir: backend
+    plan: free
+
     envVars:
-      - key: OPENAI_API_KEY
+      - key: GEMINI_API_KEY
         sync: false
+
+      - key: MODEL_NAME
+        value: gemini-3.8-flash
+
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: customer-support-db
+          property: connectionString
+
+  - type: web
+    name: agentic-customer-support-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+
+databases:
+  - name: customer-support-db
+    plan: free
+    postgresMajorVersion: "18"
