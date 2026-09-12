@@ -67,3 +67,18 @@ For example:
                        │
                        ▼
               Customer Response
+🎯 Project Objective
+
+The main objective of this project is to demonstrate how Agentic AI can be integrated with real-world customer-support workflows.
+
+The system follows:
+
+Understand
+    ↓
+Retrieve
+    ↓
+Decide
+    ↓
+Act
+    ↓
+Respond
